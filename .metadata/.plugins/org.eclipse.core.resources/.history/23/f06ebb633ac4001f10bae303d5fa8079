@@ -1,0 +1,68 @@
+package codegnan;
+import java.util.Scanner;
+
+public class PrimeNumber {
+	public static boolean prime(int number) {
+		boolean isPrime=true;
+		for(int i=2;i<=(number/2);i++) {
+			if(number%i==0) {
+				isPrime=false;
+				break;
+			}
+		}
+		return isPrime;
+	}
+	public static void printPrimes(int start,int end) {
+		
+	
+		for(int y=start;y<=end;y++) {
+			//System.out.println(y);
+			boolean isPrime=true;
+			for(int i=2;i<=(y/2);i++) {
+				if(y%i==0) {
+					isPrime=false;
+					break;
+				}
+			}
+			if(isPrime) {
+				System.out.println(y);
+			}
+		}
+		
+	}
+	public static void printNthPrime(int n) {
+		int count=1;
+		for(int y=1;y<=n;y++) {
+			//System.out.println(y);
+			boolean isPrime=true;
+			for(int i=2;i<=(y/2);i++) {
+				if(y%i==0) {
+					isPrime=false;
+					break;
+				}
+			}
+			if(isPrime) {
+				count=count+1;
+				System.out.println(y);
+			}
+		}
+		
+	}
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+        System.out.println("enter number to be checked");
+        int number=sc.nextInt();
+        boolean status=PrimeNumber.prime(number);
+        if(status) {
+        	System.out.println("prime number");
+        }else {
+        	System.out.println("not a prime number");
+
+        }
+        PrimeNumber.printPrimes(2,20);
+        PrimeNumber.printNthPrime(30);
+
+	}
+
+}
